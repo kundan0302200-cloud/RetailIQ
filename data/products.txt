@@ -1,0 +1,10 @@
+101|Apple iPhone 15|Smartphone|A premium flagship smartphone with A16 bionic chip and high quality camera|69999.0|25
+102|Samsung Galaxy S24|Smartphone|Next-generation AI phone with dynamic AMOLED display and excellent battery|64999.0|18
+103|OnePlus 12|Smartphone|Fast charging flagship smartphone with Snapdragon processor and vibrant screen|54999.0|30
+104|Sony WH-1000XM5|Headphones|Industry-leading noise cancelling wireless headphones with premium sound quality|29999.0|12
+105|Apple AirPods Pro|Earbuds|Wireless active noise cancelling earbuds with spatial audio and wireless case|24999.0|20
+106|Dell Inspiron 15|Laptop|Reliable 15-inch laptop powered by Intel Core i7 with 16GB RAM and fast SSD|59999.0|15
+107|HP Pavilion|Laptop|Sleek entertainment laptop with high resolution screen and long battery life|57999.0|10
+108|Logitech MX Master 3S|Mouse|Ergonomic performance wireless mouse with ultra-fast scrolling and quiet clicks|8999.0|35
+109|Samsung 27 Inch Monitor|Monitor|Ultra HD IPS gaming and productivity monitor with HDR and HDMI ports|18999.0|22
+110|Anker Power Bank|Accessories|Ultra-compact high capacity portable charger with fast delivery power bank|3999.0|40

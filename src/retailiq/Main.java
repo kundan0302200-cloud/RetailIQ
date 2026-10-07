@@ -4,7 +4,6 @@ import retailiq.ui.MainMenu;
 
 /**
  * RetailIQ: Intelligent Retail Analytics Platform.
- * Entry point for the Eclipse standalone console application.
  */
 public class Main {
 

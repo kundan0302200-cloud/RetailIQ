@@ -3,8 +3,10 @@ package retailiq.ui;
 import retailiq.co1.AlgorithmDesign;
 import retailiq.co2.*;
 import retailiq.co3.*;
+import retailiq.co6.*;
 import retailiq.data.RetailData;
 import retailiq.model.Review;
+import retailiq.test.FinalTestRunner;
 import retailiq.test.Review1TestRunner;
 
 import java.util.Scanner;
@@ -225,11 +227,13 @@ public class MainMenu {
         boolean back = false;
         while (!back) {
             System.out.println("\n---------- ALGORITHM DEMONSTRATIONS & VIVA PREPARATION ----------");
-            System.out.println("1. Run Automated Review-1 Verification Tests (CO1 - CO3)");
-            System.out.println("2. Display CO1 Algorithm Selection Matrix & Rationale");
-            System.out.println("3. Interactive Search Benchmark (CO2 Comparison)");
-            System.out.println("4. Product Bundle Optimization Demo (CO3 Bitmask DP)");
-            System.out.println("5. Logistics Hub Rerooting Demo (CO3 Rerooting DP)");
+            System.out.println("1. Run Master Automated Verification Tests (CO1 - CO6 Final Evaluation)");
+            System.out.println("2. Run Review-1 Verification Tests (CO1 - CO3)");
+            System.out.println("3. Run Multi-Core Parallel Empirical Benchmarks (ForkJoin Speedup)");
+            System.out.println("4. Display CO1 Algorithm Selection Matrix & Rationale");
+            System.out.println("5. Interactive Search Benchmark (CO2 Comparison)");
+            System.out.println("6. Product Bundle Optimization Demo (CO3 Bitmask DP)");
+            System.out.println("7. Logistics Hub Rerooting Demo (CO3 Rerooting DP)");
             System.out.println("0. Back");
             System.out.print("Enter your choice: ");
 
@@ -239,18 +243,26 @@ public class MainMenu {
             String ch = scanner.nextLine().trim();
             switch (ch) {
                 case "1":
-                    Review1TestRunner.runAllTests();
+                    FinalTestRunner.runAllTests();
                     break;
                 case "2":
-                    AlgorithmDesign.displaySelectionTable();
+                    Review1TestRunner.runAllTests();
                     break;
                 case "3":
-                    SearchMenu.display(scanner);
+                    System.out.println("\nLaunching empirical multi-core parallel speedup benchmarks...");
+                    ParallelSort.runBenchmark(50000);
+                    ParallelReduce.runBenchmark(500000);
                     break;
                 case "4":
-                    OptimizationMenu.display(scanner);
+                    AlgorithmDesign.displaySelectionTable();
                     break;
                 case "5":
+                    SearchMenu.display(scanner);
+                    break;
+                case "6":
+                    OptimizationMenu.display(scanner);
+                    break;
+                case "7":
                     OptimizationMenu.display(scanner);
                     break;
                 case "0":

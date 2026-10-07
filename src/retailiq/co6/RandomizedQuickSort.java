@@ -5,6 +5,11 @@ package retailiq.co6;
  */
 public class RandomizedQuickSort {
 
+    public static void sort(double[] arr) {
+        if (arr == null || arr.length <= 1) return;
+        sort(arr, 0, arr.length - 1);
+    }
+
     public static void sort(double[] arr, int low, int high) {
         if (low < high) {
             int pi = randomizedPartition(arr, low, high);

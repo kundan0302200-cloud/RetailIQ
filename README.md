@@ -103,23 +103,29 @@ RetailIQ/
 ### Option A: From Eclipse IDE (Recommended)
 1. Open Eclipse IDE.
 2. Select **File $\rightarrow$ Open Projects from File System...** and select `d:\Java class notes\RetailIQ`.
-3. In the Package Explorer, navigate to `src/retailiq/Main.java`.
-4. Right-click [`Main.java`](file:///d:/Java%20class%20notes/RetailIQ/src/retailiq/Main.java) $\rightarrow$ **Run As $\rightarrow$ Java Application**.
+3. Right-click the project and choose **Maven $\rightarrow$ Update Project** to resolve Lanterna.
+4. In the Package Explorer, navigate to `src/retailiq/Main.java`.
+5. Right-click [`Main.java`](file:///d:/Java%20class%20notes/RetailIQ/src/retailiq/Main.java) $\rightarrow$ **Run As $\rightarrow$ Java Application**.
 
 ### Option B: From Command Line / PowerShell
 ```powershell
 # Navigate to project directory
 cd "d:\Java class notes\RetailIQ"
 
-# Compile all source files into bin directory
-javac -d bin (Get-ChildItem -Recurse -Filter *.java src | ForEach-Object { $_.FullName })
+# Compile the application and resolve the terminal UI dependency
+mvn compile
 
 # Run the Master Final Automated Verification Test Suite (CO1 - CO6)
-java -cp bin retailiq.test.FinalTestRunner
+mvn exec:java -Dexec.mainClass=retailiq.test.FinalTestRunner
 
 # Or Run the Main Interactive Console Application
-java -cp bin retailiq.Main
+mvn exec:java -Dexec.mainClass=retailiq.Main
 ```
+
+The interactive menus use the Lanterna terminal library. Select an item with **Up/Down**, press
+**Enter** to open it, and use **Esc** to go back. Run the application in a terminal that supports
+interactive keyboard input (such as Windows Terminal or Eclipse's Terminal view). The numbered
+prompts inside existing workflows remain line-based.
 
 ---
 

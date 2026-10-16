@@ -28,75 +28,64 @@ public class MainMenu {
         boolean exit = false;
 
         while (!exit) {
-            printBanner();
-            System.out.println("1. Product Management");
-            System.out.println("2. Customer Management");
-            System.out.println("3. Order & Sales Management");
-            System.out.println("4. Product Search");
-            System.out.println("5. Review Analysis");
-            System.out.println("6. Query Correction");
-            System.out.println("7. Product Bundle Optimization");
-            System.out.println("8. Inventory Distribution");
-            System.out.println("9. Product Constraint Analysis");
-            System.out.println("10. Sales Analytics");
-            System.out.println("11. Algorithm Demonstrations & Automated Tests");
-            System.out.println("0. Exit");
-            System.out.println("==================================================");
-            System.out.print("Enter your choice: ");
-
-            if (!scanner.hasNextLine()) {
-                break;
+            int choice = ArrowKeyMenu.select("RETAILIQ  /  Intelligent Retail Analytics", "Home",
+                    new String[] { "Products", "Customers", "Orders and sales", "Product search",
+                            "Review analysis", "Query correction", "Product bundles", "Inventory",
+                            "Product constraints", "Sales analytics", "Algorithm demos and tests", "Quit" },
+                    new String[] { "Browse and manage items", "View customer profiles", "Manage retail activity",
+                            "Search the catalog", "Search and compare review text", "Find corrected product names",
+                            "Optimize product bundles", "View warehouse stock", "Explore product constraints",
+                            "Explore sales data", "Run demonstrations and verification", "Exit RetailIQ" },
+                    "↑/↓ Move   Enter Select   Esc Back   Q Quit");
+            if (choice == -1) break;
+            if (choice == -2) {
+                if (!scanner.hasNextLine()) break;
+                String typedChoice = scanner.nextLine().trim();
+                try { choice = Integer.parseInt(typedChoice) - 1; }
+                catch (NumberFormatException e) { continue; }
             }
-            String choice = scanner.nextLine().trim();
             switch (choice) {
-                case "1":
+                case 0:
                     ProductMenu.display(scanner);
                     break;
-                case "2":
+                case 1:
                     CustomerMenu.display(scanner);
                     break;
-                case "3":
+                case 2:
                     AnalyticsMenu.display(scanner);
                     break;
-                case "4":
+                case 3:
                     SearchMenu.display(scanner);
                     break;
-                case "5":
+                case 4:
                     handleReviewAnalysis();
                     break;
-                case "6":
+                case 5:
                     handleQueryCorrection();
                     break;
-                case "7":
+                case 6:
                     OptimizationMenu.display(scanner);
                     break;
-                case "8":
+                case 7:
                     InventoryMenu.display(scanner);
                     break;
-                case "9":
+                case 8:
                     AnalyticsMenu.display(scanner);
                     break;
-                case "10":
+                case 9:
                     AnalyticsMenu.display(scanner);
                     break;
-                case "11":
+                case 10:
                     handleAlgorithmDemonstrations();
                     break;
-                case "0":
+                case 11:
                     exit = true;
                     System.out.println("\nThank you for using RetailIQ Intelligent Retail Analytics. Goodbye!");
                     break;
                 default:
-                    System.out.println("\nInvalid choice! Please select an option between 0 and 11.");
+                    break;
             }
         }
-    }
-
-    private void printBanner() {
-        System.out.println("\n==================================================");
-        System.out.println("                 RETAILIQ");
-        System.out.println("        Intelligent Retail Analytics");
-        System.out.println("==================================================");
     }
 
     private void handleReviewAnalysis() {

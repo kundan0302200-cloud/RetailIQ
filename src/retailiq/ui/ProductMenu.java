@@ -15,48 +15,46 @@ public class ProductMenu {
         boolean back = false;
 
         while (!back) {
-            System.out.println("\n--------- PRODUCT MANAGEMENT ---------");
-            System.out.println("1. Add Product");
-            System.out.println("2. View Products");
-            System.out.println("3. Search Product");
-            System.out.println("4. Update Stock");
-            System.out.println("5. Delete Product");
-            System.out.println("6. Sort Products by Price");
-            System.out.println("7. Product Details");
-            System.out.println("0. Back");
-            System.out.print("Enter your choice: ");
-
-            if (!scanner.hasNextLine()) {
-                break;
+            int choice = ArrowKeyMenu.select("RETAILIQ  /  Products", "Home / Products",
+                    new String[] { "Browse products", "Add product", "Search products", "Update stock",
+                            "Deactivate product", "Sort by price", "Product details", "Back" },
+                    new String[] { "View the catalog", "Add an item to the catalog", "Find by name or category",
+                            "Change available quantity", "Set a product's stock to zero", "Sort by ascending price",
+                            "View one product's information", "Return to the main menu" },
+                    "↑/↓ Move   Enter Select   Esc Back");
+            if (choice == -1) break;
+            if (choice == -2) {
+                if (!scanner.hasNextLine()) break;
+                try { choice = Integer.parseInt(scanner.nextLine().trim()) - 1; }
+                catch (NumberFormatException e) { continue; }
             }
-            String choice = scanner.nextLine().trim();
             switch (choice) {
-                case "1":
+                case 1:
                     handleAddProduct(scanner, data);
                     break;
-                case "2":
+                case 0:
                     handleViewProducts(data);
                     break;
-                case "3":
+                case 2:
                     handleSearchProduct(scanner, data);
                     break;
-                case "4":
+                case 3:
                     handleUpdateStock(scanner, data);
                     break;
-                case "5":
+                case 4:
                     handleDeleteProduct(scanner, data);
                     break;
-                case "6":
+                case 5:
                     handleSortProducts(data);
                     break;
-                case "7":
+                case 6:
                     handleProductDetails(scanner, data);
                     break;
-                case "0":
+                case 7:
                     back = true;
                     break;
                 default:
-                    System.out.println("Invalid choice! Please enter a number between 0 and 7.");
+                    break;
             }
         }
     }
